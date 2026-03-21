@@ -1400,12 +1400,14 @@
             display: flex;
             gap: 2rem;
             overflow-x: auto;
-            scroll-behavior: auto; /* Changed to auto for JS-controlled smooth scrolling */
+            scroll-behavior: auto;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
             -ms-overflow-style: none;
             padding: 1rem 0;
             cursor: grab;
+            flex-wrap: nowrap;
+            align-items: stretch;
         }
 
         .gallery-grid:active {
@@ -1424,7 +1426,8 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             transition: all 0.5s ease;
             flex: 0 0 350px;
-            scroll-snap-align: start;
+            flex-shrink: 0;
+            scroll-snap-align: none;
         }
 
         .gallery-item:hover {
@@ -2255,8 +2258,25 @@
                 font-size: 0.85rem;
             }
 
+            /* Owner Section Tablet */
+            #owner .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            #owner .about-image {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            #owner .about-text h3 {
+                font-size: 1.8rem;
+                text-align: center;
+            }
+
             .gallery-item {
                 flex: 0 0 300px;
+                flex-shrink: 0;
             }
 
             .gallery-nav-btn.prev {
@@ -2403,6 +2423,26 @@
                 min-width: 100%;
             }
 
+            /* Owner Section Mobile */
+            #owner .about-content {
+                grid-template-columns: 1fr;
+                gap: 2.5rem;
+            }
+
+            #owner .about-image {
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            #owner .about-text h3 {
+                font-size: 1.6rem;
+                text-align: center;
+            }
+
+            #owner .about-text p {
+                font-size: 1rem;
+            }
+
             .gallery-nav {
                 width: 40px;
                 height: 40px;
@@ -2417,11 +2457,12 @@
 
             /* Gallery Responsive */
             .gallery-grid {
-                scroll-behavior: smooth;
+                scroll-behavior: auto;
             }
 
             .gallery-item {
                 flex: 0 0 280px;
+                flex-shrink: 0;
             }
 
             .gallery-nav-btn {
@@ -2700,6 +2741,7 @@
 
             .gallery-item {
                 flex: 0 0 260px;
+                flex-shrink: 0;
             }
 
             .gallery-nav-btn {
@@ -2727,6 +2769,27 @@
                 font-size: 1.4rem;
                 bottom: 60px;
                 right: 10px;
+            }
+
+            /* Owner Section Small Mobile */
+            #owner .about-content {
+                gap: 2rem;
+            }
+
+            #owner .about-image img {
+                max-width: 100%;
+            }
+
+            #owner .about-text h3 {
+                font-size: 1.4rem;
+            }
+
+            #owner .about-text p {
+                font-size: 0.9rem;
+            }
+
+            #owner .stats-container > div {
+                flex: 1 1 100%;
             }
 
             /* Price Popup Small Mobile */
@@ -2954,6 +3017,7 @@
                 <ul id="nav-menu">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#owner">Founder</a></li>
                     <li><a href="#properties">Properties</a></li>
                     <li><a href="#faq">FAQ</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -3005,6 +3069,50 @@
                 </div>
                 <div class="about-image">
                     <img src="images/2.jpg" alt="SK Builders Office Veppampattu Tiruvallur" loading="lazy" decoding="async">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Owner/Founder Section -->
+    <section class="about" id="owner" style="background: linear-gradient(135deg, var(--off-white), var(--cream));">
+        <div class="section-container">
+            <div class="section-title reveal">
+                <h2>Meet Our Founder</h2>
+                <div class="divider"></div>
+            </div>
+            <div class="about-content" style="align-items: center;">
+                <div class="about-image reveal" style="opacity: 1; transform: translateX(0);">
+                    <img src="images/owner 1.jpg" alt="Owner of SK Builders & Constructions Veppampattu" loading="lazy" decoding="async" style="border: 5px solid var(--gold); box-shadow: 0 30px 70px rgba(212, 175, 55, 0.3);">
+                </div>
+                <div class="about-text reveal" style="opacity: 1; transform: translateX(0);">
+                    <h3 style="font-size: 2.2rem; margin-bottom: 1rem;">Welcome to SK Builders & Constructions</h3>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #1a1a1a; margin-bottom: 1.5rem;">
+                        As the founder and owner of <strong>SK Builders & Constructions</strong>, I am proud to serve the real estate needs of <strong>Veppampattu, Tiruvallur District</strong> and surrounding areas. With over 6 years of dedicated service, we have built a reputation for trust, transparency, and quality.
+                    </p>
+                    <p style="font-size: 1.1rem; line-height: 1.8; color: #1a1a1a; margin-bottom: 1.5rem;">
+                        Our mission is simple: to help every family find their dream home and every investor secure the best property deals in Veppampattu, Ragavendra Nagar, Pattabiram, and throughout Tiruvallur District.
+                    </p>
+                    <div style="background: linear-gradient(135deg, var(--gold-light), var(--cream)); padding: 1.5rem; border-radius: 15px; border-left: 5px solid var(--gold); margin-top: 1.5rem;">
+                        <p style="font-style: italic; color: #000000; font-weight: 600; margin-bottom: 0;">
+                            "Your trust is our foundation, and your satisfaction is our blueprint. We don't just sell properties; we build lasting relationships with every client."
+                        </p>
+                        <p style="text-align: right; margin-top: 1rem; margin-bottom: 0; font-weight: 700; color: var(--gold-dark);">— Founder, SK Builders & Constructions</p>
+                    </div>
+                    <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--gold-dark); font-family: 'Playfair Display', serif;">6+</div>
+                            <div style="font-size: 0.9rem; color: #000000; font-weight: 600; text-transform: uppercase;">Years Experience</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--gold-dark); font-family: 'Playfair Display', serif;">25+</div>
+                            <div style="font-size: 0.9rem; color: #000000; font-weight: 600; text-transform: uppercase;">Properties Sold</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 2.5rem; font-weight: 700; color: var(--gold-dark); font-family: 'Playfair Display', serif;">100+</div>
+                            <div style="font-size: 0.9rem; color: #000000; font-weight: 600; text-transform: uppercase;">Happy Families</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -3161,120 +3269,6 @@
             <div style="text-align: center; margin-top: 3rem;">
                 <p style="color: #000000; margin-bottom: 1.5rem; font-size: 1.1rem; font-weight: 600;">And 16+ more properties available</p>
                 <a href="#contact" class="btn">Contact for Full List</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Gallery/Projects Section -->
-    <section class="gallery" id="gallery">
-        <div class="section-container">
-            <div class="section-title reveal">
-                <h2>Our Latest Projects</h2>
-                <div class="divider"></div>
-            </div>
-            <div class="gallery-container">
-                <button class="gallery-nav-btn prev" onclick="scrollGallery(-1)">&#10094;</button>
-                <div class="gallery-grid" id="galleryGrid">
-                    <!-- Original Items -->
-                    <div class="gallery-item" onclick="openGalleryModal(0)">
-                        <span class="gallery-badge">Completed</span>
-                        <img src="images/1.jpg" alt="Project 1" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>Ragavendra Nagar Apartments</h3>
-                            <p>📍 Veppampattu, Chennai | 12 Units Delivered</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openGalleryModal(1)">
-                        <span class="gallery-badge">Ongoing</span>
-                        <img src="images/2.jpg" alt="Project 2" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>Luxury Villa Project</h3>
-                            <p>📍 Bajarang College Area | 3 Villas Under Construction</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openGalleryModal(2)">
-                        <span class="gallery-badge">Completed</span>
-                        <img src="images/3.jpg" alt="Project 3" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>Modern Residency</h3>
-                            <p>📍 Veppampattu | 8 Units | 2 BHK & 3 BHK</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openGalleryModal(3)">
-                        <span class="gallery-badge">New Launch</span>
-                        <img src="images/4.jpg" alt="Project 4" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>Golden Heights</h3>
-                            <p>📍 Chennai North | Premium 3 BHK Flats</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openGalleryModal(4)">
-                        <span class="gallery-badge">Completed</span>
-                        <img src="images/5.jpg" alt="Project 5" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>Sunrise Enclave</h3>
-                            <p>📍 Pattabiram | 15 Plots Developed</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openGalleryModal(5)">
-                        <span class="gallery-badge">Ongoing</span>
-                        <img src="images/6.jpg" alt="Project 6" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>SK Signature Towers</h3>
-                            <p>📍 Avadi | Gated Community | Coming 2026</p>
-                        </div>
-                    </div>
-                    <!-- Duplicated Items for Infinite Scroll -->
-                    <div class="gallery-item" onclick="openGalleryModal(0)">
-                        <span class="gallery-badge">Completed</span>
-                        <img src="images/1.jpg" alt="Project 1" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>Ragavendra Nagar Apartments</h3>
-                            <p>📍 Veppampattu, Chennai | 12 Units Delivered</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openGalleryModal(1)">
-                        <span class="gallery-badge">Ongoing</span>
-                        <img src="images/2.jpg" alt="Project 2" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>Luxury Villa Project</h3>
-                            <p>📍 Bajarang College Area | 3 Villas Under Construction</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openGalleryModal(2)">
-                        <span class="gallery-badge">Completed</span>
-                        <img src="images/3.jpg" alt="Project 3" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>Modern Residency</h3>
-                            <p>📍 Veppampattu | 8 Units | 2 BHK & 3 BHK</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openGalleryModal(3)">
-                        <span class="gallery-badge">New Launch</span>
-                        <img src="images/4.jpg" alt="Project 4" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>Golden Heights</h3>
-                            <p>📍 Chennai North | Premium 3 BHK Flats</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openGalleryModal(4)">
-                        <span class="gallery-badge">Completed</span>
-                        <img src="images/5.jpg" alt="Project 5" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>Sunrise Enclave</h3>
-                            <p>📍 Pattabiram | 15 Plots Developed</p>
-                        </div>
-                    </div>
-                    <div class="gallery-item" onclick="openGalleryModal(5)">
-                        <span class="gallery-badge">Ongoing</span>
-                        <img src="images/6.jpg" alt="Project 6" loading="lazy" decoding="async">
-                        <div class="gallery-overlay">
-                            <h3>SK Signature Towers</h3>
-                            <p>📍 Avadi | Gated Community | Coming 2026</p>
-                        </div>
-                    </div>
-                </div>
-                <button class="gallery-nav-btn next" onclick="scrollGallery(1)">&#10095;</button>
             </div>
         </div>
     </section>
@@ -3525,27 +3519,6 @@
                     </a>
                     <a href="#" class="modal-btn secondary" onclick="whatsappAboutProperty(); return false;">
                         💬 WhatsApp
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Gallery Modal -->
-    <div class="property-modal" id="galleryModal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button class="close-modal" onclick="closeGalleryModal()">&times;</button>
-                <div class="modal-gallery">
-                    <img src="" alt="Project Image" id="galleryModalImg">
-                </div>
-            </div>
-            <div class="modal-body">
-                <h2 class="modal-title" id="galleryModalTitle"></h2>
-                <p class="modal-description" id="galleryModalDescription"></p>
-                <div class="modal-actions">
-                    <a href="#contact" class="modal-btn" onclick="closeGalleryModal()">
-                        📞 Enquire Now
                     </a>
                 </div>
             </div>
@@ -3836,39 +3809,6 @@
             }
         ];
 
-        const galleryProjects = [
-            {
-                title: "Ragavendra Nagar Apartments",
-                description: "A premium apartment complex with 12 units delivered in 2024. Features 1 & 2 BHK options with modern amenities, covered parking, and 24/7 security. Located in the heart of Veppampattu with excellent connectivity.",
-                image: "images/1.jpg"
-            },
-            {
-                title: "Luxury Villa Project",
-                description: "Ongoing construction of 3 premium villas near Bajarang College. Each villa features 3 BHK configuration with private gardens, modern architecture, and smart home features. Expected completion: December 2026.",
-                image: "images/2.jpg"
-            },
-            {
-                title: "Modern Residency",
-                description: "Completed project with 8 units featuring 2 & 3 BHK apartments. All units sold out within 6 months of launch. Located in Veppampattu with excellent infrastructure and amenities.",
-                image: "images/3.jpg"
-            },
-            {
-                title: "Golden Heights",
-                description: "Newly launched premium 3 BHK flats in Chennai North. Features include clubhouse, swimming pool, gym, and children's play area. Booking open with attractive payment plans.",
-                image: "images/4.jpg"
-            },
-            {
-                title: "Sunrise Enclave",
-                description: "Successfully developed 15 residential plots in Pattabiram. All plots sold with clear titles and approved layouts. Infrastructure includes underground drainage, street lights, and tree-lined roads.",
-                image: "images/5.jpg"
-            },
-            {
-                title: "SK Signature Towers",
-                description: "Upcoming gated community project in Avadi. Will feature 2 & 3 BHK apartments across 2 towers with 50+ amenities including clubhouse, pool, gym, and landscaped gardens. Launching early 2026.",
-                image: "images/6.jpg"
-            }
-        ];
-
         let currentPropertyIndex = 0;
         let currentImageIndex = 0;
 
@@ -3943,34 +3883,12 @@
             window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
         }
 
-        // Gallery Modal Functions
-        function openGalleryModal(index) {
-            const project = galleryProjects[index];
-            const modal = document.getElementById('galleryModal');
-            
-            document.getElementById('galleryModalTitle').textContent = project.title;
-            document.getElementById('galleryModalDescription').textContent = project.description;
-            document.getElementById('galleryModalImg').src = project.image;
-            
-            modal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function closeGalleryModal() {
-            document.getElementById('galleryModal').classList.remove('active');
-            document.body.style.overflow = 'auto';
-        }
-
-        // Close modals on outside click
+        // Close property modal on outside click
         window.onclick = function(event) {
             const propertyModal = document.getElementById('propertyModal');
-            const galleryModal = document.getElementById('galleryModal');
-            
+
             if (event.target === propertyModal) {
                 closePropertyModal();
-            }
-            if (event.target === galleryModal) {
-                closeGalleryModal();
             }
         }
 
@@ -3978,176 +3896,9 @@
         document.addEventListener('keydown', function(e) {
             if (e.key === 'Escape') {
                 closePropertyModal();
-                closeGalleryModal();
             }
         });
 
-        // ===== SMOOTH INFINITE AUTO SCROLL GALLERY =====
-        let autoScrollInterval;
-        let scrollAnimationId;
-        const gallery = document.getElementById('galleryGrid');
-        const SCROLL_SPEED = 0.8; // Pixels per frame - lower = slower, smoother
-        let isPaused = false;
-
-        // Smooth infinite scroll with CSS-like animation
-        function smoothInfiniteScroll() {
-            if (!gallery || isPaused) {
-                scrollAnimationId = requestAnimationFrame(smoothInfiniteScroll);
-                return;
-            }
-
-            const itemWidth = 370; // Item width + gap
-            const totalItems = gallery.children.length;
-            const singleSetWidth = (totalWidth / 2);
-            
-            // Smooth scroll right
-            gallery.scrollLeft += SCROLL_SPEED;
-
-            // Seamless infinite loop - when we reach the middle set, jump back to start
-            if (gallery.scrollLeft >= singleSetWidth) {
-                gallery.scrollLeft = 0;
-            }
-
-            scrollAnimationId = requestAnimationFrame(smoothInfiniteScroll);
-        }
-
-        // Calculate total width of one complete set of items
-        let totalWidth = 0;
-        function calculateTotalWidth() {
-            if (!gallery) return;
-            const items = gallery.children;
-            const halfCount = items.length / 2;
-            totalWidth = 0;
-            for (let i = 0; i < halfCount; i++) {
-                totalWidth += items[i].offsetWidth;
-            }
-        }
-
-        // Start smooth infinite auto-scroll
-        function startAutoScroll() {
-            if (!gallery) return;
-            
-            calculateTotalWidth();
-            
-            // Set initial position to middle of duplicated content (for seamless loop)
-            const middlePosition = totalWidth / 2;
-            gallery.scrollLeft = middlePosition;
-
-            // Start smooth animation using requestAnimationFrame
-            isPaused = false;
-            smoothInfiniteScroll();
-        }
-
-        // Stop auto-scroll
-        function stopAutoScroll() {
-            isPaused = true;
-            if (scrollAnimationId) {
-                cancelAnimationFrame(scrollAnimationId);
-            }
-        }
-
-        // Manual scroll navigation with smooth animation
-        function scrollGallery(direction) {
-            if (!gallery) return;
-            
-            const scrollAmount = 370; // Item width + gap
-            const targetScroll = gallery.scrollLeft + (direction * scrollAmount);
-            
-            // Smooth scroll to position
-            gallery.scrollTo({
-                left: targetScroll,
-                behavior: 'smooth'
-            });
-
-            // Pause auto-scroll temporarily after manual navigation
-            const originalPaused = isPaused;
-            isPaused = true;
-            
-            setTimeout(() => {
-                isPaused = originalPaused;
-            }, 3000);
-        }
-
-        // Initialize gallery with smooth infinite auto-scroll
-        if (gallery) {
-            // Wait for images to load
-            window.addEventListener('load', () => {
-                calculateTotalWidth();
-                
-                // Start auto-scroll after 2 second delay
-                setTimeout(() => {
-                    startAutoScroll();
-                }, 2000);
-            });
-
-            // Pause auto-scroll on hover (user interaction)
-            gallery.addEventListener('mouseenter', () => {
-                isPaused = true;
-            });
-
-            // Resume auto-scroll when mouse leaves
-            gallery.addEventListener('mouseleave', () => {
-                isPaused = false;
-            });
-
-            // Pause on touch devices when user touches
-            gallery.addEventListener('touchstart', () => {
-                isPaused = true;
-            }, { passive: true });
-
-            // Resume after touch ends (with delay)
-            gallery.addEventListener('touchend', () => {
-                setTimeout(() => {
-                    isPaused = false;
-                }, 2000);
-            }, { passive: true });
-        }
-
-        // Drag to scroll functionality (desktop)
-        let isDown = false;
-        let startX;
-        let scrollLeft;
-
-        if (gallery) {
-            gallery.addEventListener('mousedown', (e) => {
-                isDown = true;
-                startX = e.pageX - gallery.offsetLeft;
-                scrollLeft = gallery.scrollLeft;
-                isPaused = true;
-                gallery.style.cursor = 'grabbing';
-            });
-
-            gallery.addEventListener('mouseleave', () => {
-                isDown = false;
-                isPaused = false;
-                gallery.style.cursor = 'grab';
-            });
-
-            gallery.addEventListener('mouseup', () => {
-                isDown = false;
-                isPaused = false;
-                gallery.style.cursor = 'grab';
-            });
-
-            gallery.addEventListener('mousemove', (e) => {
-                if (!isDown) return;
-                e.preventDefault();
-                const x = e.pageX - gallery.offsetLeft;
-                const walk = (x - startX) * 2;
-                gallery.scrollLeft = scrollLeft - walk;
-            });
-
-            // Touch support for mobile (native scroll with pause)
-            gallery.addEventListener('touchstart', (e) => {
-                isPaused = true;
-            }, { passive: true });
-
-            gallery.addEventListener('touchend', () => {
-                setTimeout(() => {
-                    isPaused = false;
-                }, 2000);
-            }, { passive: true });
-        }
     </script>
 
     <!-- Price Popup Functions -->

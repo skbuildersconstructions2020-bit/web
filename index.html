@@ -2041,6 +2041,86 @@
             transform: scale(1.1);
         }
 
+        /* Price Popup Notification */
+        .price-popup {
+            position: fixed;
+            bottom: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+            color: #000000;
+            padding: 1.5rem 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 50px rgba(212, 175, 55, 0.5);
+            z-index: 9998;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            text-align: center;
+            min-width: 320px;
+            max-width: 90%;
+            border: 3px solid #fff;
+        }
+
+        .price-popup.show {
+            bottom: 100px;
+        }
+
+        .price-popup h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .price-popup p {
+            font-size: 1.1rem;
+            margin-bottom: 0;
+            font-weight: 600;
+            color: #000000;
+        }
+
+        .price-popup .price-highlight {
+            font-size: 2.2rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #000000, var(--brown));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            display: block;
+            margin-top: 0.5rem;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        .price-popup-close {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: rgba(0,0,0,0.2);
+            border: none;
+            color: #000000;
+            font-size: 1.5rem;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            font-weight: 700;
+        }
+
+        .price-popup-close:hover {
+            background: rgba(0,0,0,0.4);
+            transform: rotate(90deg);
+        }
+
+        .price-popup-icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            animation: float 2s ease-in-out infinite;
+        }
+
         /* Print Styles */
         @media print {
             .whatsapp-btn,
@@ -2091,6 +2171,20 @@
 
             .modal-content {
                 margin: 30px auto;
+            }
+
+            /* Price Popup Tablet */
+            .price-popup {
+                min-width: 280px;
+                padding: 1.2rem 2rem;
+            }
+
+            .price-popup h3 {
+                font-size: 1.5rem;
+            }
+
+            .price-popup .price-highlight {
+                font-size: 1.8rem;
             }
         }
 
@@ -2442,6 +2536,41 @@
                 bottom: 70px;
                 right: 15px;
             }
+
+            /* Price Popup Mobile */
+            .price-popup {
+                min-width: 260px;
+                padding: 1rem 1.5rem;
+                bottom: -350px;
+            }
+
+            .price-popup.show {
+                bottom: 80px;
+            }
+
+            .price-popup h3 {
+                font-size: 1.3rem;
+            }
+
+            .price-popup p {
+                font-size: 0.95rem;
+            }
+
+            .price-popup .price-highlight {
+                font-size: 1.5rem;
+            }
+
+            .price-popup-icon {
+                font-size: 2rem;
+            }
+
+            .price-popup-close {
+                width: 30px;
+                height: 30px;
+                font-size: 1.2rem;
+                top: 5px;
+                right: 8px;
+            }
         }
 
         /* Mobile Small (max-width: 480px) */
@@ -2598,6 +2727,28 @@
                 font-size: 1.4rem;
                 bottom: 60px;
                 right: 10px;
+            }
+
+            /* Price Popup Small Mobile */
+            .price-popup {
+                min-width: 240px;
+                padding: 1rem;
+            }
+
+            .price-popup h3 {
+                font-size: 1.2rem;
+            }
+
+            .price-popup p {
+                font-size: 0.85rem;
+            }
+
+            .price-popup .price-highlight {
+                font-size: 1.3rem;
+            }
+
+            .price-popup-icon {
+                font-size: 1.8rem;
             }
         }
 
@@ -3998,6 +4149,62 @@
             }, { passive: true });
         }
     </script>
+
+    <!-- Price Popup Functions -->
+    <script>
+        // Show price popup after 3 seconds
+        let pricePopupTimeout;
+        
+        function showPricePopup() {
+            // Check if user has already seen the popup in this session
+            const hasSeenPopup = sessionStorage.getItem('hasSeenPricePopup');
+            if (!hasSeenPopup) {
+                pricePopupTimeout = setTimeout(function() {
+                    document.getElementById('pricePopup').classList.add('show');
+                }, 3000);
+            }
+        }
+
+        function closePricePopup() {
+            document.getElementById('pricePopup').classList.remove('show');
+            // Remember that user has seen the popup
+            sessionStorage.setItem('hasSeenPricePopup', 'true');
+        }
+
+        // Auto-hide popup after 10 seconds
+        function autoHidePopup() {
+            setTimeout(function() {
+                closePricePopup();
+            }, 10000);
+        }
+
+        // Initialize popup on page load
+        window.addEventListener('load', function() {
+            showPricePopup();
+            autoHidePopup();
+        });
+
+        // Close popup when clicking outside
+        document.addEventListener('click', function(event) {
+            const popup = document.getElementById('pricePopup');
+            const isClickInsidePopup = popup.contains(event.target);
+            const isClickOnWhatsapp = event.target.closest('.whatsapp-btn');
+            
+            if (!isClickInsidePopup && !isClickOnWhatsapp && popup.classList.contains('show')) {
+                closePricePopup();
+            }
+        });
+    </script>
+
+    <!-- Price Popup Notification -->
+    <div class="price-popup" id="pricePopup">
+        <button class="price-popup-close" onclick="closePricePopup()">&times;</button>
+        <div class="price-popup-icon">🏠</div>
+        <h3>Exciting News!</h3>
+        <p>Premium Homes in Veppampattu</p>
+        <span class="price-highlight">Starting from ₹28 Lakhs*</span>
+        <p style="font-size: 0.85rem; margin-top: 0.8rem; opacity: 0.9;">*Contact us for more details</p>
+    </div>
 
     <!-- WhatsApp Button -->
     <a href="https://wa.me/919597620465?text=Hi%20SK%20Builders%2C%20I%20am%20interested%20in%20your%20services.%20Please%20contact%20me." class="whatsapp-btn" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp" aria-label="Chat on WhatsApp">

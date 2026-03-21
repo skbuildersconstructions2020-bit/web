@@ -3267,7 +3267,7 @@
                 </div>
             </div>
             <div style="text-align: center; margin-top: 3rem;">
-                <p style="color: #000000; margin-bottom: 1.5rem; font-size: 1.1rem; font-weight: 600;">And 16+ more properties available</p>
+                <p style="color: #000000; margin-bottom: 1.5rem; font-size: 1.1rem; font-weight: 600;">And many more properties available</p>
                 <a href="#contact" class="btn">Contact for Full List</a>
             </div>
         </div>
@@ -3305,44 +3305,136 @@
         </div>
     </section>
 
-    <!-- FAQ Section - Veppampattu Real Estate -->
-    <section class="about" id="faq" style="background: var(--white);">
+    <!-- Gallery Section - Additional Properties -->
+    <section class="gallery" id="gallery-properties">
         <div class="section-container">
             <div class="section-title reveal">
-                <h2>FAQ - Real Estate in Veppampattu</h2>
+                <h2>Property Gallery</h2>
                 <div class="divider"></div>
             </div>
-            <div style="max-width: 900px; margin: 0 auto;">
-                <div class="about-content" style="grid-template-columns: 1fr; gap: 2rem;">
-                    <div class="about-text reveal" style="padding: 1.5rem; border: 2px solid var(--gold); border-radius: 15px; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15); margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--gold-dark); margin-bottom: 0.8rem; font-size: 1.2rem;">🏠 Why invest in Veppampattu real estate?</h4>
-                        <p style="color: #1a1a1a; line-height: 1.8;">Veppampattu in Tiruvallur District is one of Chennai's fastest-growing suburbs with excellent connectivity via Chennai Suburban Railway, proximity to IT corridors, and affordable property rates. The area offers high ROI potential with ongoing infrastructure development including metro connectivity plans.</p>
-                    </div>
-                    <div class="about-text reveal" style="padding: 1.5rem; border: 2px solid var(--gold); border-radius: 15px; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15); margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--gold-dark); margin-bottom: 0.8rem; font-size: 1.2rem;">📄 Are the plots in Veppampattu DTCP/CMDA approved?</h4>
-                        <p style="color: #1a1a1a; line-height: 1.8;">Yes! All our residential plots in Veppampattu, Ragavendra Nagar, and surrounding areas in Tiruvallur District come with DTCP/CMDA approval, clear titles, and complete legal documentation. We ensure 100% transparency in all transactions.</p>
-                    </div>
-                    <div class="about-text reveal" style="padding: 1.5rem; border: 2px solid var(--gold); border-radius: 15px; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15); margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--gold-dark); margin-bottom: 0.8rem; font-size: 1.2rem;">💰 What is the average property rate in Veppampattu?</h4>
-                        <p style="color: #1a1a1a; line-height: 1.8;">Property rates in Veppampattu, Tiruvallur District range from ₹2,500 to ₹4,500 per sqft depending on location, amenities, and proximity to main roads. Our properties in Ragavendra Nagar and Bajarang College area offer competitive pricing with excellent appreciation potential.</p>
-                    </div>
-                    <div class="about-text reveal" style="padding: 1.5rem; border: 2px solid var(--gold); border-radius: 15px; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15); margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--gold-dark); margin-bottom: 0.8rem; font-size: 1.2rem;">🏫 What amenities are available near Veppampattu properties?</h4>
-                        <p style="color: #1a1a1a; line-height: 1.8;">Veppampattu offers excellent social infrastructure including Bajarang College, schools, hospitals, supermarkets, banks, and Veppampattu Railway Station with direct connectivity to Chennai Central. The area is well-connected to Avadi, Pattabiram, and Thirumazhisai.</p>
-                    </div>
-                    <div class="about-text reveal" style="padding: 1.5rem; border: 2px solid var(--gold); border-radius: 15px; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15); margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--gold-dark); margin-bottom: 0.8rem; font-size: 1.2rem;">📋 What documents are required for property registration in Tiruvallur?</h4>
-                        <p style="color: #1a1a1a; line-height: 1.8;">For property registration in Veppampattu, Tiruvallur District, you need: Sale Deed, Mother Deed, Patta & Chitta, DTCP/CMDA approval, EC (Encumbrance Certificate), Property Tax receipts, and Aadhaar/PAN of buyer. We provide complete documentation support and legal assistance.</p>
-                    </div>
-                    <div class="about-text reveal" style="padding: 1.5rem; border: 2px solid var(--gold); border-radius: 15px; box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15); margin-bottom: 1.5rem;">
-                        <h4 style="color: var(--gold-dark); margin-bottom: 0.8rem; font-size: 1.2rem;">🏦 Is home loan available for properties in Veppampattu?</h4>
-                        <p style="color: #1a1a1a; line-height: 1.8;">Yes! All major banks and NBFCs provide home loans for properties in Veppampattu, Tiruvallur District. We have tie-ups with leading banks for quick loan approval at competitive interest rates. We also assist with loan documentation and processing.</p>
-                    </div>
+
+            <!-- Properties Grid (11-32) - Responsive Grid Layout -->
+            <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+                <!-- Images 11-24 -->
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(0)">
+                    <img src="images/11.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: linear-gradient(135deg, var(--gold-light), var(--cream)); border-radius: 15px; border: 2px solid var(--gold);">
-                    <h3 style="color: var(--gold-dark); margin-bottom: 1rem; font-size: 1.5rem;">Still Have Questions About Properties in Veppampattu?</h3>
-                    <p style="color: #1a1a1a; margin-bottom: 1.5rem; font-size: 1.1rem;">Our real estate experts in Tiruvallur District are here to help!</p>
-                    <a href="#contact" class="btn">Contact Us Today</a>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(1)">
+                    <img src="images/12.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(2)">
+                    <img src="images/13.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(3)">
+                    <img src="images/14.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(4)">
+                    <img src="images/15.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(5)">
+                    <img src="images/16.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(6)">
+                    <img src="images/17.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(7)">
+                    <img src="images/18.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(8)">
+                    <img src="images/19.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(9)">
+                    <img src="images/20.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(10)">
+                    <img src="images/21.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(11)">
+                    <img src="images/22.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(12)">
+                    <img src="images/23.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(13)">
+                    <img src="images/24.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(14)">
+                    <img src="images/25.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(15)">
+                    <img src="images/26.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(16)">
+                    <img src="images/27.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(17)">
+                    <img src="images/28.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(18)">
+                    <img src="images/29.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(19)">
+                    <img src="images/30.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(20)">
+                    <img src="images/31.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+                
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(21)">
+                    <img src="images/32.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Office Cabins Section -->
+    <section class="gallery" id="gallery-office" style="background: linear-gradient(135deg, var(--cream), var(--off-white));">
+        <div class="section-container">
+            <div class="section-title reveal">
+                <h2>Office Cabins Gallery</h2>
+                <div class="divider"></div>
+                <p style="color: #666; margin-top: 1rem;">Premium office cabins at SK Builders, Veppampattu</p>
+            </div>
+
+            <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(22)">
+                    <img src="images/Cabin 1.jpg" alt="Office Cabin" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(23)">
+                    <img src="images/Cabin 2.jpg" alt="Office Cabin" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(24)">
+                    <img src="images/Cabin 3.jpg" alt="Office Cabin" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(25)">
+                    <img src="images/Cabin 4.jpg" alt="Office Cabin" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                </div>
+
+                <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(26)">
+                    <img src="images/Cabin 5.jpg" alt="Office Cabin" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
             </div>
         </div>
@@ -3535,7 +3627,7 @@
         // Form submission handler - Send to WhatsApp
         function handleSubmit(event) {
             event.preventDefault();
-            
+
             console.log('Form submitted!');
 
             // Get form values
@@ -3563,7 +3655,7 @@
                 }
             }
 
-            // Create message
+            // Create WhatsApp message
             const timestamp = new Date().toLocaleString('en-IN');
             const whatsappMessage = `*New Inquiry from Website*%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Phone:* ${encodeURIComponent(cleanPhone)}%0A*Email:* ${encodeURIComponent(email || 'Not provided')}%0A*Message:* ${encodeURIComponent(message)}%0A*Time:* ${encodeURIComponent(timestamp)}`;
 
@@ -3574,15 +3666,8 @@
             // Reset form
             document.getElementById('contactForm').reset();
 
-            // Open WhatsApp
+            // Open WhatsApp directly
             window.open(whatsappUrl, '_blank');
-
-            // Also open email client with pre-filled message
-            const emailSubject = encodeURIComponent(`New Inquiry from ${name} - SK Builders Website`);
-            const emailBody = encodeURIComponent(`*New Inquiry from Website*\n\n*Name:* ${name}\n*Phone:* ${cleanPhone}\n*Email:* ${email || 'Not provided'}\n*Message:* ${message}\n*Time:* ${timestamp}`);
-            
-            // Open email client for both email addresses
-            window.location.href = `mailto:${EMAIL}?subject=${emailSubject}&body=${emailBody}`;
 
             return false;
         }
@@ -3965,5 +4050,85 @@
             </svg>
         </span>
     </a>
+
+    <!-- Gallery Lightbox Modal -->
+    <div class="property-modal" id="galleryLightbox" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.95); z-index: 10001; overflow-y: auto;">
+        <div style="max-width: 1200px; margin: 50px auto; position: relative;">
+            <button class="close-modal" onclick="closeGalleryLightbox()" style="position: absolute; top: 20px; right: 20px; background: rgba(255, 255, 255, 0.2); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 2rem; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; z-index: 10;">&times;</button>
+            
+            <button onclick="prevGalleryImage()" style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%); background: rgba(255, 255, 255, 0.2); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; transition: all 0.3s ease; z-index: 10;">&#10094;</button>
+            <button onclick="nextGalleryImage()" style="position: absolute; top: 50%; right: 20px; transform: translateY(-50%); background: rgba(255, 255, 255, 0.2); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.5rem; transition: all 0.3s ease; z-index: 10;">&#10095;</button>
+            
+            <div style="text-align: center; padding: 60px 20px;">
+                <img id="lightboxImage" src="" alt="Gallery Image" style="max-width: 90%; max-height: 80vh; object-fit: contain; border-radius: 10px;">
+            </div>
+            
+            <div style="text-align: center; padding: 10px 20px; color: white; font-size: 1.1rem;">
+                <span id="imageCounter"></span>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Gallery Lightbox Functions
+        let currentGalleryIndex = 0;
+        const galleryImages = [
+            'images/11.jpeg', 'images/12.jpeg', 'images/13.jpeg', 'images/14.jpeg',
+            'images/15.jpeg', 'images/16.jpeg', 'images/17.jpeg', 'images/18.jpeg',
+            'images/19.jpeg', 'images/20.jpeg', 'images/21.jpeg', 'images/22.jpeg',
+            'images/23.jpeg', 'images/24.jpeg', 'images/25.jpeg', 'images/26.jpeg',
+            'images/27.jpeg', 'images/28.jpeg', 'images/29.jpeg', 'images/30.jpeg',
+            'images/31.jpeg', 'images/32.jpeg',
+            'images/Cabin 1.jpg', 'images/Cabin 2.jpg', 'images/Cabin 3.jpg',
+            'images/Cabin 4.jpg', 'images/Cabin 5.jpg'
+        ];
+
+        function openGalleryLightbox(index) {
+            currentGalleryIndex = index;
+            document.getElementById('lightboxImage').src = galleryImages[index];
+            updateImageCounter();
+            document.getElementById('galleryLightbox').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGalleryLightbox() {
+            document.getElementById('galleryLightbox').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        function prevGalleryImage() {
+            currentGalleryIndex = (currentGalleryIndex - 1 + galleryImages.length) % galleryImages.length;
+            document.getElementById('lightboxImage').src = galleryImages[currentGalleryIndex];
+            updateImageCounter();
+        }
+
+        function nextGalleryImage() {
+            currentGalleryIndex = (currentGalleryIndex + 1) % galleryImages.length;
+            document.getElementById('lightboxImage').src = galleryImages[currentGalleryIndex];
+            updateImageCounter();
+        }
+
+        function updateImageCounter() {
+            document.getElementById('imageCounter').textContent = (currentGalleryIndex + 1) + ' / ' + galleryImages.length;
+        }
+
+        // Close lightbox on outside click
+        document.getElementById('galleryLightbox').addEventListener('click', function(e) {
+            if (e.target === this || e.target.classList.contains('close-modal')) {
+                closeGalleryLightbox();
+            }
+        });
+
+        // Close lightbox on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeGalleryLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                prevGalleryImage();
+            } else if (e.key === 'ArrowRight') {
+                nextGalleryImage();
+            }
+        });
+    </script>
 </body>
 </html>

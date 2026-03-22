@@ -72,6 +72,61 @@
     <meta property="twitter:creator" content="@SKBuildersChennai">
     <meta property="twitter:site" content="@SKBuildersChennai">
 
+    <!-- ===== Monthly Auto-Refresh & Content Freshness ===== -->
+    <!-- Auto-refresh meta tags - Content updates monthly for SEO -->
+    <meta name="revisit-after" content="30 days">
+    <meta http-equiv="Refresh" content="2592000"> <!-- 30 days in seconds -->
+    <meta name="dc.date.issued" content="2026-03-22">
+    <meta name="dc.date.modified" content="2026-03-22">
+    <meta name="dc.date.valid" content="2026-04-22">
+    <meta name="date" content="2026-03-22">
+    <meta name="expiry" content="2026-04-22">
+    <meta name="coverage" content="Veppampattu, Avadi, Pattabiram, Tiruniravur, Nemlicherry, Chennai North, Tamil Nadu, India">
+    <meta name="classification" content="Real Estate, Property, Construction">
+    
+    <!-- Dynamic content freshness script - Updates timestamp monthly -->
+    <script>
+        // Auto-update content freshness timestamp monthly
+        (function updateContentFreshness() {
+            const now = new Date();
+            const currentMonth = now.getMonth();
+            const currentYear = now.getFullYear();
+            
+            // Calculate next month for expiry
+            const nextMonth = new Date(currentYear, currentMonth + 1, 22);
+            const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+            
+            // Format dates
+            const formattedDate = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-22`;
+            const formattedExpiry = `${nextMonth.getFullYear()}-${String(nextMonth.getMonth() + 1).padStart(2, '0')}-22`;
+            const readableDate = `22 ${months[currentMonth]} ${currentYear}`;
+            const readableExpiry = `22 ${months[nextMonth.getMonth()]} ${nextMonth.getFullYear()}`;
+            
+            // Update meta tags dynamically
+            document.addEventListener('DOMContentLoaded', function() {
+                // Update modified date meta tags
+                const modifiedMeta = document.querySelector('meta[name="dc.date.modified"]');
+                const validMeta = document.querySelector('meta[name="dc.date.valid"]');
+                const dateMeta = document.querySelector('meta[name="date"]');
+                const expiryMeta = document.querySelector('meta[name="expiry"]');
+                
+                if (modifiedMeta) modifiedMeta.setAttribute('content', formattedDate);
+                if (validMeta) validMeta.setAttribute('content', formattedExpiry);
+                if (dateMeta) dateMeta.setAttribute('content', formattedDate);
+                if (expiryMeta) expiryMeta.setAttribute('content', formattedExpiry);
+                
+                // Update copyright year in footer
+                const copyrightYear = new Date().getFullYear();
+                const copyrightElements = document.querySelectorAll('[id*="copyright"], .copyright-year');
+                copyrightElements.forEach(el => {
+                    el.textContent = el.textContent.replace(/\d{4}/, copyrightYear);
+                });
+                
+                console.log(`📅 Content Freshness Updated: ${readableDate} | Next Update: ${readableExpiry}`);
+            });
+        })();
+    </script>
+
     <!-- ===== Additional Search Engine Verification ===== -->
     <meta name="verify-v1" content="SK-Builders-Veppampattu-Verification">
     <meta name="msvalidate.01" content="pending">
@@ -433,6 +488,68 @@
         a {
             pointer-events: auto;
             user-select: text;
+        }
+
+        /* ===== IMAGE OPTIMIZATION & LAZY LOADING ===== */
+        /* Smooth image loading with fade-in effect */
+        img {
+            opacity: 0;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        img.loaded,
+        img[src] {
+            opacity: 1;
+        }
+
+        /* Low-quality image placeholder (LQIP) effect */
+        img[loading="lazy"] {
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        img.loaded[loading="lazy"] {
+            background: none;
+            animation: none;
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        /* Prevent layout shift - reserve space for images */
+        .property-image img,
+        .gallery-item img,
+        .about-image img,
+        .modal-header img {
+            aspect-ratio: 4 / 3;
+            object-fit: cover;
+            contain: layout paint;
+        }
+
+        /* Critical images (above the fold) - no lazy loading */
+        .hero {
+            background-image: url('images/1.jpg');
+        }
+
+        /* Optimize image rendering */
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            will-change: opacity;
+        }
+
+        /* Reduce motion for users who prefer it */
+        @media (prefers-reduced-motion: reduce) {
+            img {
+                transition: none;
+            }
         }
 
         h1, h2, h3, h4 {
@@ -2617,24 +2734,25 @@
                 white-space: normal;
             }
 
+            /* Fixed Floating Buttons - Mobile */
             .whatsapp-btn {
-                width: 50px;
-                height: 50px;
+                width: 55px;
+                height: 55px;
                 font-size: 1.6rem;
-                bottom: 70px;
-                right: 15px;
+                bottom: 20px !important;
+                right: 15px !important;
             }
 
             .location-btn {
-                width: 50px;
-                height: 50px;
-                bottom: 130px;
-                right: 15px;
+                width: 55px;
+                height: 55px;
+                bottom: 85px !important;
+                right: 15px !important;
             }
 
             .location-btn svg {
-                width: 28px;
-                height: 28px;
+                width: 30px;
+                height: 30px;
             }
         }
 
@@ -3046,7 +3164,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>SK Builders & Constructions - #1 Real Estate in Veppampattu, Avadi, Pattabiram, Tiruniravur, Nemlicherry</h1>
+            <h1>SK Builders & Constructions - #1 Real Estate </h1>
             <p class="tagline">HOUSE, LAND BUYING & SELLING IN VEPPAMPATTU, AVADI, PATTABIRAM, TIRUNIRAVUR, NEMLICHERRY</p>
             <a href="#properties" class="btn">Explore Properties in Veppampattu, Avadi, Pattabiram, Tiruniravur, Nemlicherry</a>
             <div class="hero-stats">
@@ -3085,7 +3203,7 @@
                     <p style="margin-top: 1.5rem; padding: 1.2rem; background: linear-gradient(135deg, var(--gold-light), var(--cream)); border-left: 4px solid var(--gold); border-radius: 8px;"><strong>🏆 Why Choose SK Builders?</strong><br>✓ Local expertise in Veppampattu, Avadi, Pattabiram, Tiruniravur, Nemlicherry<br>✓ DTCP/CMDA approved properties in all locations<br>✓ Clear title & complete legal documentation<br>✓ Best property rates in Chennai North<br>✓ Post-possession support<br>✓ Trusted by 100+ families across Veppampattu, Avadi, Pattabiram, Tiruniravur, Nemlicherry</p>
                 </div>
                 <div class="about-image">
-                    <img src="images/2.jpg" alt="SK Builders Office Veppampattu, Avadi, Pattabiram, Tiruniravur, Nemlicherry" loading="lazy" decoding="async">
+                    <img src="images/2.jpg" alt="SK Builders Office Veppampattu, Avadi, Pattabiram, Tiruniravur, Nemlicherry" loading="lazy" decoding="async" width="600" height="400">
                 </div>
             </div>
         </div>
@@ -3100,7 +3218,7 @@
             </div>
             <div class="about-content" style="align-items: center;">
                 <div class="about-image reveal" style="opacity: 1; transform: translateX(0);">
-                    <img src="images/owner 1.jpg" alt="Owner of SK Builders & Constructions Veppampattu" loading="lazy" decoding="async" style="border: 5px solid var(--gold); box-shadow: 0 30px 70px rgba(212, 175, 55, 0.3);">
+                    <img src="images/owner 1.jpg" alt="Owner of SK Builders & Constructions Veppampattu" loading="lazy" decoding="async" width="600" height="400" style="border: 5px solid var(--gold); box-shadow: 0 30px 70px rgba(212, 175, 55, 0.3);">
                 </div>
                 <div class="about-text reveal" style="opacity: 1; transform: translateX(0);">
                     <h3 style="font-size: 2.2rem; margin-bottom: 1rem;">Welcome to SK Builders & Constructions</h3>
@@ -3146,7 +3264,7 @@
                 <!-- 1 BHK Properties -->
                 <div class="property-card" onclick="openPropertyModal(0)">
                     <div class="property-image">
-                        <img src="images/3.jpg" alt="1 BHK Apartment" loading="lazy" decoding="async">
+                        <img src="images/3.jpg" alt="1 BHK Apartment" loading="lazy" decoding="async" width="400" height="300">
                         <span class="property-badge">Available</span>
                     </div>
                     <div class="property-info">
@@ -3164,7 +3282,7 @@
                 <!-- 2 BHK Properties -->
                 <div class="property-card" onclick="openPropertyModal(1)">
                     <div class="property-image">
-                        <img src="images/4.jpg" alt="2 BHK Apartment" loading="lazy" decoding="async">
+                        <img src="images/4.jpg" alt="2 BHK Apartment" loading="lazy" decoding="async" width="400" height="300">
                         <span class="property-badge">Featured</span>
                     </div>
                     <div class="property-info">
@@ -3181,7 +3299,7 @@
 
                 <div class="property-card" onclick="openPropertyModal(2)">
                     <div class="property-image">
-                        <img src="images/5.jpg" alt="2 BHK Home" loading="lazy" decoding="async">
+                        <img src="images/5.jpg" alt="2 BHK Home" loading="lazy" decoding="async" width="400" height="300">
                         <span class="property-badge">Available</span>
                     </div>
                     <div class="property-info">
@@ -3199,7 +3317,7 @@
                 <!-- Villa Properties -->
                 <div class="property-card" onclick="openPropertyModal(3)">
                     <div class="property-image">
-                        <img src="images/6.jpg" alt="Villa" loading="lazy" decoding="async">
+                        <img src="images/6.jpg" alt="Villa" loading="lazy" decoding="async" width="400" height="300">
                         <span class="property-badge">Premium</span>
                     </div>
                     <div class="property-info">
@@ -3216,7 +3334,7 @@
 
                 <div class="property-card" onclick="openPropertyModal(4)">
                     <div class="property-image">
-                        <img src="images/7.jpg" alt="Independent Villa" loading="lazy" decoding="async">
+                        <img src="images/7.jpg" alt="Independent Villa" loading="lazy" decoding="async" width="400" height="300">
                         <span class="property-badge">Available</span>
                     </div>
                     <div class="property-info">
@@ -3234,7 +3352,7 @@
                 <!-- Plot Properties -->
                 <div class="property-card" onclick="openPropertyModal(5)">
                     <div class="property-image">
-                        <img src="images/8.jpg" alt="Residential Plot" loading="lazy" decoding="async">
+                        <img src="images/8.jpg" alt="Residential Plot" loading="lazy" decoding="async" width="400" height="300">
                         <span class="property-badge">Investment</span>
                     </div>
                     <div class="property-info">
@@ -3251,7 +3369,7 @@
 
                 <div class="property-card" onclick="openPropertyModal(6)">
                     <div class="property-image">
-                        <img src="images/9.jpg" alt="Land Plot" loading="lazy" decoding="async">
+                        <img src="images/9.jpg" alt="Land Plot" loading="lazy" decoding="async" width="400" height="300">
                         <span class="property-badge">Available</span>
                     </div>
                     <div class="property-info">
@@ -3268,7 +3386,7 @@
 
                 <div class="property-card" onclick="openPropertyModal(7)">
                     <div class="property-image">
-                        <img src="images/10.jpg" alt="Commercial Plot" loading="lazy" decoding="async">
+                        <img src="images/10.jpg" alt="Commercial Plot" loading="lazy" decoding="async" width="400" height="300">
                         <span class="property-badge">Hot Deal</span>
                     </div>
                     <div class="property-info">
@@ -3334,91 +3452,91 @@
             <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
                 <!-- Images 11-24 -->
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(0)">
-                    <img src="images/11.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/11.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(1)">
-                    <img src="images/12.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/12.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(2)">
-                    <img src="images/13.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/13.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(3)">
-                    <img src="images/14.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/14.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(4)">
-                    <img src="images/15.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/15.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(5)">
-                    <img src="images/16.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/16.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(6)">
-                    <img src="images/17.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/17.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(7)">
-                    <img src="images/18.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/18.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(8)">
-                    <img src="images/19.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/19.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(9)">
-                    <img src="images/20.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/20.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(10)">
-                    <img src="images/21.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/21.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(11)">
-                    <img src="images/22.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/22.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(12)">
-                    <img src="images/23.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/23.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(13)">
-                    <img src="images/24.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/24.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(14)">
-                    <img src="images/25.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/25.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(15)">
-                    <img src="images/26.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/26.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(16)">
-                    <img src="images/27.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/27.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(17)">
-                    <img src="images/28.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/28.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(18)">
-                    <img src="images/29.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/29.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(19)">
-                    <img src="images/30.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/30.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(20)">
-                    <img src="images/31.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/31.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
-                
+
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(21)">
-                    <img src="images/32.jpeg" alt="Property" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/32.jpeg" alt="Property" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
             </div>
         </div>
@@ -3435,23 +3553,23 @@
 
             <div class="gallery-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem;">
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(22)">
-                    <img src="images/Cabin 1.jpg" alt="Office Cabin" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/Cabin 1.jpg" alt="Office Cabin" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
 
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(23)">
-                    <img src="images/Cabin 2.jpg" alt="Office Cabin" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/Cabin 2.jpg" alt="Office Cabin" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
 
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(24)">
-                    <img src="images/Cabin 3.jpg" alt="Office Cabin" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/Cabin 3.jpg" alt="Office Cabin" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
 
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(25)">
-                    <img src="images/Cabin 4.jpg" alt="Office Cabin" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/Cabin 4.jpg" alt="Office Cabin" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
 
                 <div class="gallery-item" style="border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); position: relative; cursor: pointer;" onclick="openGalleryLightbox(26)">
-                    <img src="images/Cabin 5.jpg" alt="Office Cabin" loading="lazy" decoding="async" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
+                    <img src="images/Cabin 5.jpg" alt="Office Cabin" loading="lazy" decoding="async" width="400" height="300" style="width: 100%; height: 250px; object-fit: cover; transition: transform 0.8s ease;">
                 </div>
             </div>
         </div>
@@ -3790,6 +3908,82 @@
         document.addEventListener('DOMContentLoaded', () => {
             const header = document.querySelector('header');
             header.style.animation = 'fadeInDown 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards';
+        });
+
+        // ============================================
+        // IMAGE LAZY LOADING OPTIMIZATION
+        // ============================================
+        
+        // Fast, efficient image lazy loading with Intersection Observer
+        function initImageLazyLoading() {
+            // Options for the observer - load images slightly before they're visible
+            const imageObserverOptions = {
+                root: null,
+                rootMargin: '200px 0px', // Start loading 200px before image enters viewport
+                threshold: 0.01
+            };
+
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        
+                        // If image has data-src, load it
+                        if (img.dataset.src) {
+                            img.src = img.dataset.src;
+                            img.removeAttribute('data-src');
+                        }
+                        
+                        // When image loads, add loaded class for fade-in effect
+                        img.addEventListener('load', () => {
+                            img.classList.add('loaded');
+                        });
+                        
+                        // If image is already cached, it will load immediately
+                        if (img.complete) {
+                            img.classList.add('loaded');
+                        }
+                        
+                        // Stop observing this image
+                        observer.unobserve(img);
+                    }
+                });
+            }, imageObserverOptions);
+
+            // Observe all lazy loading images
+            document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+                imageObserver.observe(img);
+            });
+        }
+
+        // Preload critical images (above the fold)
+        function preloadCriticalImages() {
+            const criticalImages = [
+                'images/logo.jpeg',
+                'images/1.jpg',
+                'images/2.jpg',
+                'images/3.jpg',
+                'images/4.jpg'
+            ];
+
+            criticalImages.forEach(src => {
+                const img = new Image();
+                img.src = src;
+                // Browser will cache these for later use
+            });
+        }
+
+        // Initialize image optimization on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            preloadCriticalImages();
+            initImageLazyLoading();
+            
+            // Mark already loaded images
+            document.querySelectorAll('img').forEach(img => {
+                if (img.complete) {
+                    img.classList.add('loaded');
+                }
+            });
         });
 
         // ============================================

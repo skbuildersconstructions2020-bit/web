@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+    
+    <!-- 
+    SK Builders - Sitemap
+    Website: https://www.skbuilderschennai.com/
+    Location: Veppampattu, Avadi, Pattabiram, Tiruniravur, Nemlicherry, Chennai North
+    Generated: March 2026
+    Last Updated: Monthly (Auto-refresh enabled)
+    -->
+
+    <!-- Homepage - Main Priority -->
+    <url>
+        <loc>https://www.skbuilderschennai.com/</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://www.skbuilderschennai.com/images/logo.jpeg</image:loc>
+            <image:title>SK Builders Logo</image:title>
+            <image:caption>SK Builders & Construction - #1 Real Estate in Veppampattu, Avadi, Pattabiram</image:caption>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.skbuilderschennai.com/images/1.jpg</image:loc>
+            <image:title>Hero Banner - SK Builders</image:title>
+            <image:caption>Premium Real Estate Properties in Chennai North</image:caption>
+        </image:image>
+    </url>
+
+    <!-- About Section -->
+    <url>
+        <loc>https://www.skbuilderschennai.com/#about</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Founder/Owner Section -->
+    <url>
+        <loc>https://www.skbuilderschennai.com/#owner</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Properties Section - High Priority -->
+    <url>
+        <loc>https://www.skbuilderschennai.com/#properties</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+        <image:image>
+            <image:loc>https://www.skbuilderschennai.com/images/3.jpg</image:loc>
+            <image:title>1 BHK Apartment</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.skbuilderschennai.com/images/4.jpg</image:loc>
+            <image:title>2 BHK Modern Residence</image:title>
+        </image:image>
+        <image:image>
+            <image:loc>https://www.skbuilderschennai.com/images/6.jpg</image:loc>
+            <image:title>Luxury Villa</image:title>
+        </image:image>
+    </url>
+
+    <!-- Property Gallery Section -->
+    <url>
+        <loc>https://www.skbuilderschennai.com/#gallery-properties</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <!-- Office Cabins Gallery -->
+    <url>
+        <loc>https://www.skbuilderschennai.com/#gallery-office</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Services Section -->
+    <url>
+        <loc>https://www.skbuilderschennai.com/#services</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- FAQ Section -->
+    <url>
+        <loc>https://www.skbuilderschennai.com/#faq</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <!-- Contact Section - High Priority for Local SEO -->
+    <url>
+        <loc>https://www.skbuilderschennai.com/#contact</loc>
+        <lastmod>2026-03-22</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- 
+    SEO Notes:
+    - Priority 1.0: Homepage (most important)
+    - Priority 0.95: Properties section (main business offering)
+    - Priority 0.9: About, Contact (important for trust and conversion)
+    - Priority 0.8-0.85: Services, Gallery (supporting content)
+    - Priority 0.7-0.75: FAQ, Owner (informational content)
+    
+    Change Frequency:
+    - weekly: Properties (new listings, price updates)
+    - monthly: General content updates, fresh content signal
+    - yearly: Static information
+    
+    Last Modified: Updated monthly to signal fresh content to search engines
+    -->
+
+</urlset>

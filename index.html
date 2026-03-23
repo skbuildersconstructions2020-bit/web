@@ -4272,12 +4272,16 @@
         }
 
         function updateImageCounter() {
-            document.getElementById('imageCounter').textContent = (currentGalleryIndex + 1) + ' / ' + galleryImages.length;
+            const counterElement = document.getElementById('imageCounter');
+            if (counterElement) {
+                counterElement.textContent = (currentGalleryIndex + 1) + ' / ' + galleryImages.length;
+            }
         }
 
         // Close lightbox on outside click
         document.getElementById('galleryLightbox').addEventListener('click', function(e) {
-            if (e.target === this || e.target.classList.contains('close-modal')) {
+            const lightbox = document.getElementById('galleryLightbox');
+            if (e.target === lightbox || e.target.classList.contains('close-modal')) {
                 closeGalleryLightbox();
             }
         });
